@@ -11,12 +11,16 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
       },
       role: {
         type: Sequelize.STRING,
+        allowNull: false,
         references: {
           model: "Roles",
           key: "name",
