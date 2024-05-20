@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-// app.use("api", router);
+app.use("/api", router);
 
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} environment.🚀`);
