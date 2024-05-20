@@ -12,9 +12,38 @@ class Service {
   }
   static async ListUsers() {
     try {
-      const users = await User.findAll();
+      const users = await User.findAll({
+        attributes: { exclude: ["password"] },
+      });
 
       return users;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async DetailUser(id) {
+    try {
+      const user = await User.findByPk(id, {
+        attributes: { exclude: ["password"] },
+      });
+
+      if (!user) throw new Error("User not found.");
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async EditUser(id, payload) {
+    try {
+      const user = await User.update(payload, {
+        where: { id },
+        returning: true,
+        individualHooks: true,
+      });
+
+      return user[1][0];
     } catch (error) {
       throw error;
     }

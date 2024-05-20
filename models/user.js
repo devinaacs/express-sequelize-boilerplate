@@ -26,11 +26,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   User.beforeCreate((instance, options) => {
+    if (instance.password) instance.password = createHash(instance.password);
+  });
+  User.beforeUpdate((instance, options) => {
     instance.password = createHash(instance.password);
   });
   User.afterCreate((instance, options) => {
     delete instance.dataValues.password;
   });
-  
+  User.afterUpdate((instance, options) => {
+    delete instance.dataValues.password;
+  });
+
   return User;
 };
