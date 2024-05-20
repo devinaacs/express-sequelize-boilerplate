@@ -9,6 +9,7 @@ module.exports = {
     port: process.env.PG_PORT,
     dialect: "postgres",
     dialectOptions: {
+      ssl: true,
       useUTC: false,
     },
     timezone: "+07:00",
