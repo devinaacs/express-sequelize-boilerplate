@@ -1,11 +1,19 @@
 const { User } = require("../models");
 
 class Service {
+  static async CreateUser(payload) {
+    try {
+      const user = await User.create(payload);
+
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  }
   static async ListUsers() {
     try {
-      console.log("masuk");
       const users = await User.findAll();
-      console.log(users);
+
       return users;
     } catch (error) {
       throw error;
