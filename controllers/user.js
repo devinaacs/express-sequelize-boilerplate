@@ -52,12 +52,24 @@ class Controller {
 
       const result = await Service.EditUser(id, payload);
 
-      success(res, 200, "Successfully get detail user.", result);
+      success(res, 200, "Successfully edit detail user.", result);
     } catch (error) {
       console.log(error);
     }
   }
 
+  static async ChangeRoleUser(req, res, next) {
+    try {
+      const { id } = req.params;
+      const { role } = req.body;
+
+      const result = await Service.ChangeRoleUser(id, role);
+
+      success(res, 200, "Successfully change role user.", result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = Controller;

@@ -48,6 +48,22 @@ class Service {
       throw error;
     }
   }
+
+  static async ChangeRoleUser(id, role) {
+    try {
+      const user = await User.update(
+        { role },
+        {
+          where: { id },
+          returning: true,
+        }
+      );
+
+      return user[1][0];
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = Service;

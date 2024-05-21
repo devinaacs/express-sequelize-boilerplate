@@ -97,4 +97,23 @@ module.exports = {
       next(error);
     }
   },
+
+  patchChange: async (req, res, next) => {
+    try {
+      const schema = Joi.object({
+        body: {
+          role: role.required(),
+        },
+        params: { id },
+      });
+
+      await validator(schema, {
+        body: req.body,
+        params: req.params,
+      });
+      next();
+    } catch (error) {
+      next(error);
+    }
+  },
 };
