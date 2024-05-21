@@ -64,6 +64,16 @@ class Service {
       throw error;
     }
   }
+
+  static async DeleteUser(id) {
+    try {
+      const user = await User.destroy({ where: { id } });
+
+      return `User id ${id} has been deleted.`;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = Service;

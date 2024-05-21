@@ -7,8 +7,6 @@ router.get("/", Controller.ListUsers);
 router.get("/:id", Validator.getDetail, Controller.DetailUser);
 router.patch("/:id", Validator.patchChange, Controller.ChangeRoleUser);
 router.put("/:id", Validator.putEdit, Controller.EditUser);
-
-
-
+router.delete("/:id", Validator.getDetail, Controller.DeleteUser);
 
 module.exports = router;

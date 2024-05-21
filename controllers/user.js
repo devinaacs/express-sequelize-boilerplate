@@ -70,6 +70,17 @@ class Controller {
       console.log(error);
     }
   }
+
+  static async DeleteUser(req, res, next) {
+    try {
+      const { id } = req.params;
+      const result = await Service.DeleteUser(id);
+
+      success(res, 200, "Successfully delete user.", result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = Controller;
