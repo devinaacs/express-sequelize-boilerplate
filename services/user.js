@@ -28,7 +28,7 @@ class Service {
         attributes: { exclude: ["password"] },
       });
 
-      if (!user) throw new Error("User not found.");
+      if (!user) throw { name: "NOT_FOUND" };
       return user;
     } catch (error) {
       throw error;

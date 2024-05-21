@@ -15,7 +15,7 @@ class Controller {
 
       success(res, 200, "Successfully create new user.", result);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
@@ -25,7 +25,7 @@ class Controller {
 
       success(res, 200, "Successfully get list users.", result);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
@@ -36,7 +36,7 @@ class Controller {
 
       success(res, 200, "Successfully get detail user.", result);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
@@ -54,7 +54,7 @@ class Controller {
 
       success(res, 200, "Successfully edit detail user.", result);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
@@ -67,7 +67,7 @@ class Controller {
 
       success(res, 200, "Successfully change role user.", result);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
@@ -78,7 +78,7 @@ class Controller {
 
       success(res, 200, "Successfully delete user.", result);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 }
